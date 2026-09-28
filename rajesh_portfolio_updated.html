@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Rajesh R, a B.Tech CSE student at REVA University.">
+  <title>Rajesh R | Student Developer Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-2: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --accent-2: #a78bfa;
+      --border: #243047;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, 92%);
+      margin: 0 auto;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 17, 32, 0.9);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 370px;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 55px;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: "Courier New", monospace;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--white);
+      color: #0b1120;
+      border-color: var(--white);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 30px 0;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title::before {
+      content: "// ";
+      color: var(--accent);
+      font-family: "Courier New", monospace;
+    }
+
+    .about-text,
+    .goal-text {
+      color: var(--muted);
+      max-width: 820px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #3b4b68;
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 13px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skill {
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.75);
+      font-size: 0.86rem;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.09), rgba(167, 139, 250, 0.07));
+    }
+
+    .github {
+      color: var(--accent);
+      font-weight: 700;
+      word-break: break-all;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 25px;
+      padding: 25px 0 35px;
+      color: #64748b;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#top">Rajesh<span>.R</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#goal">Career Goal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero container">
+      <div class="hero-content">
+        <div class="eyebrow">B.Tech CSE • REVA University</div>
+        <h1>Hi, I'm <span>Rajesh R</span>.</h1>
+        <p>
+          A 2nd-year B.Tech CSE student learning programming, data structures,
+          algorithms, databases, and development while building my technical portfolio.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="https://github.com/Rajesh-csit" target="_blank" rel="noopener noreferrer">
+            View GitHub
+          </a>
+          <a class="button" href="#projects">View Projects</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+          I am a 2nd-year B.Tech CSE student at REVA University. I am currently
+          learning C++, Data Structures and Algorithms, Python, SQL, Git and GitHub,
+          while continuously improving my programming and problem-solving skills.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>LeetCode Solutions</h3>
+            <p>
+              My GitHub repository containing my coding practice and documented solutions.
+            </p>
+            <a class="card-link" href="https://github.com/Rajesh-csit/leetcode-solutions" target="_blank" rel="noopener noreferrer">
+              GitHub Repository →
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>GitHub Programming Portfolio</h3>
+            <p>
+              My programming work and learning progress, organized through GitHub.
+            </p>
+            <a class="card-link" href="https://github.com/Rajesh-csit" target="_blank" rel="noopener noreferrer">
+              View GitHub Profile →
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>HackerRank 3rd Sem Portfolio</h3>
+            <p>
+              My programming work and learning progress on HackerRank.
+            </p>
+            <a class="card-link" href="https://github.com/Rajesh-csit/HackerRank-3rdSem-Portfolio" target="_blank" rel="noopener noreferrer">
+              View GitHub Repository →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills">
+          <span class="skill">C</span>
+          <span class="skill">C++</span>
+          <span class="skill">Data Structures</span>
+          <span class="skill">Algorithms</span>
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="goal">
+      <div class="container">
+        <h2 class="section-title">Career Goal</h2>
+        <p class="goal-text">
+          I want to become a software engineer, improve my DSA and development skills,
+          and gain an internship where I can work on real-world projects.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card contact">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="about-text">
+              Connect with me and follow my programming journey on GitHub.
+            </p>
+          </div>
+
+          <a class="github" href="https://github.com/Rajesh-csit" target="_blank" rel="noopener noreferrer">
+            github.com/Rajesh-csit
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Rajesh R • Student Developer Portfolio
+  </footer>
+</body>
+</html>
